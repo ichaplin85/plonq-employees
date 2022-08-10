@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 
 
 const userRouter = require('./routes/user.router')
+const departamentRouter = require('./routes/departament.router')
 
 
 
@@ -27,6 +28,7 @@ app.use(cors(whiteList));
 
 
 app.use('/users', userRouter)
+app.use('/dep', departamentRouter)
 
 
 

@@ -1,0 +1,14 @@
+.adding {
+  padding-top: 30px;
+}
+
+.adding__form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+.adding__input {
+  width: 150px;
+}
