@@ -1,0 +1,14 @@
+.item {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.item__btn {
+  padding: 5px 10px;
+  font-size: 14px;
+}
+.item__btns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
