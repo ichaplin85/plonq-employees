@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import AddForm from '../addForm/AddForm';
+import Form from '../UI/Form';
 
 import './empl-item.css'
 
-const EmployeItem = ({fullName, position, salary, birthdate, id, deleteUser }) => {
+const EmployeItem = ({fullName, position, salary, birthdate, id, deleteUser, changeUsersHandler }) => {
 
   const [change, setChange] = useState(false)
 
@@ -27,8 +28,8 @@ const EmployeItem = ({fullName, position, salary, birthdate, id, deleteUser }) =
       </div>
       <div className="item__btns">
         <button className='item__btn' onClick={() => deleteUser(id)}>Удалить</button>
-        <button className="item__btn" onClick={() => changeHandler()}> {change ? 'Изменить' : 'Отправить'}</button>
-        {change && <AddForm/>}
+        <button className="item__btn" onClick={() => changeHandler()}> {change ? 'Закрыть форму' : 'Изменить'}</button>
+        {change && <Form id={id} changeUsersHandler={changeUsersHandler}/>}
       </div>
     </div>
     </>

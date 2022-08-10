@@ -38,16 +38,5 @@ router.post('/add', async (req, res) => {
   }
 })
 
-router.delete('/delete:id', async (req, res) => {
-  console.log(req.params);
-  const { id } = req.params;
-  try {
-    const user = await User.deleteOne({ id })
-    console.log(user);
-    // return res.status(200).json(user)
-  } catch (error) {
-    return res.status(401).json({ messag: error })
-  }
-})
 
 module.exports = router;
