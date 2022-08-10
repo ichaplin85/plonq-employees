@@ -3,7 +3,7 @@ import EmployeItem from './EmployeItem';
 
 import './employees.css'
 
-const Employees = ({users, deleteUser}) => {
+const Employees = ({users, deleteUser, changeUsersHandler}) => {
 
 
   
@@ -18,6 +18,7 @@ const Employees = ({users, deleteUser}) => {
           position={user.position}
           salary={user.salary}
           birthdate={user.birthdate}
+          changeUsersHandler={changeUsersHandler}
         />)}
     </div>
   );

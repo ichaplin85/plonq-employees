@@ -9,8 +9,7 @@ const MainPage = ({addUser}) => {
   const [users, setUsers] = useState([])
   const [fetching, setFetching] = useState(true)
 
-  const newUsers = users?.map()
-
+ 
 
   useEffect(() => {
     if(fetching) {
@@ -39,11 +38,20 @@ const MainPage = ({addUser}) => {
     setUsers(users.filter(user => user._id !== id))
   }
 
+  const changeUsersHandler = (user) => {
+    const newUser = user.filter(oldUser => oldUser._id !== user.id).concat(user)
+    setUsers(newUser)
+  }
+
+  let newUsers = [...users];
+  newUsers.length =10
+
+
 
   return (
     <div className='main'>
       {addUser && <AddForm/>}
-      <Employees users={users} deleteUser={deleteUser}/>
+      <Employees users={newUsers} deleteUser={deleteUser} changeUsersHandler={changeUsersHandler}/>
     </div>
   );
 };
