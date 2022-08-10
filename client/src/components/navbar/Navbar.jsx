@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import './navbar.css'
 
-const Navbar = () => {
+const Navbar = ({addUser, addHandler}) => {
 
   const [search, setSearch] = useState('')
 
@@ -13,8 +13,9 @@ const Navbar = () => {
 
   const findHandler = (e) => {
     e.preventDefault()
-
   }
+
+
 
   return (
     <div className='navbar'>
@@ -27,7 +28,9 @@ const Navbar = () => {
           <button className="navbar__btn btn">Искать</button>
         </form>
       </div>
-      <div className="navbar__item">Your logo</div>
+      <div className="navbar__item">
+        <button onClick={addHandler}>{addUser ? 'Скрыть форму' : 'Добавить сотрудника'}</button>
+      </div>
     </div>
   );
 };

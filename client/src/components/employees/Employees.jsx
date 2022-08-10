@@ -3,7 +3,7 @@ import EmployeItem from './EmployeItem';
 
 import './employees.css'
 
-const Employees = ({users}) => {
+const Employees = ({users, deleteUser}) => {
 
 
   
@@ -11,7 +11,9 @@ const Employees = ({users}) => {
     <div className='employees'>
       {users && users.map(user => 
         <EmployeItem 
+          deleteUser={deleteUser}
           key={user._id}
+          id={user._id}
           fullName={user.fullName}
           position={user.position}
           salary={user.salary}
