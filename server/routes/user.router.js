@@ -26,12 +26,12 @@ router.post('/add', async (req, res) => {
     const user = await User({ fullName, birthdate, position, salary })
     await user.save()
 
-    // const dep = await Department.findOne({ title: department })
-    // const dep = await Department({ title: department, users: [user._id] })
+    const dep = await Department.findOne({ title: department })
+    dep.users.push(user._id)
 
-
-    const dep = await Department.updateOne({ title: department }, { users: [user._id] })
     await dep.save()
+
+    
     console.log(user);
     console.log(dep);
     return res.status(200).json(dep)

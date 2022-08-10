@@ -1,0 +1,7 @@
+.employees {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-top: 100px; 
+  margin-bottom: 100px;
+}
