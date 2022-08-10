@@ -5,9 +5,12 @@ import Employees from '../employees/Employees';
 import AddForm from '../addForm/AddForm';
 
 
-const MainPage = () => {
+const MainPage = ({addUser}) => {
   const [users, setUsers] = useState([])
   const [fetching, setFetching] = useState(true)
+
+  const newUsers = users?.map()
+
 
   useEffect(() => {
     if(fetching) {
@@ -29,17 +32,18 @@ const MainPage = () => {
     if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) {
       console.log('scroll');
     }
-    // console.log('scrollHeight', e.target.documentElement.scrollHeight);
-    // console.log('scrollTop', e.target.documentElement.scrollTop);
-    // console.log('innerHeight', window.innerHeight);
+  }
 
+  const deleteUser = (id) => {
+    axios.delete(`http://localhost:3002/delete/${id}'`)
+    setUsers(users.filter(user => user._id !== id))
   }
 
 
   return (
     <div className='main'>
-      <Employees users={users}/>
-      <AddForm/>
+      {addUser && <AddForm/>}
+      <Employees users={users} deleteUser={deleteUser}/>
     </div>
   );
 };
