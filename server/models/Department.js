@@ -3,9 +3,10 @@ const { model, Schema, ObjectId } = require('mongoose');
 const Department = new Schema({
   title: {
     type: String,
-    require: true,
+    unique: true,
+    required: true,
   },
-  users: [{type: ObjectId, ref:'User'}],
+  users: [{ type: ObjectId, ref: 'User' }],
 })
 
 module.exports = model('Department', Department);
